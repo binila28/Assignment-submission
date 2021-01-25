@@ -1,0 +1,17 @@
+1.The answer is 122.
+ Since one of the operands ("2") is a string, JavaScript assumes it needs to perform string concatenation and therefore converts the type of 1 to "1", 1 + "2"give "12". 
+ Then, "12" + "2" give "122".
+
+2.The answer is 32.The extra + before the first "2" is treated as a unary operator.
+  JavaScript converts the type of "2" to numeric and then applies the unary + sign to it. 
+  So 1 + 2 which of course yields 3.
+  We have an operation between a number and a string (i.e., 3 and "2"), so JavaScript converts the numeric value to a string and performs string concatenation,gives "32".
+
+3.The answer is 02.The unary operator is -. So "1" becomes 1, when the - is applied, which is then added to 1 give 0, which is then converted to a string and concatenated with the final "2" operand, give "02".
+
+4.The answer is 112.+ or - operand in front of a string converts it to number.So +1 become 1.It is then immediately converted back to a string when it is concatenated with the second "1" ,which is then concatenated with the final "2" operand, give the string "112".
+
+5.The answer is NaN2.This special value results from an operation that could not be performed either because one of the operands was non-numeric or because the result of the operation is non-numeric.
+ Since the - operator can not be applied to strings, and since neither "A" nor "B" can be converted to numeric values, "A" - "B" give NaN which is then concatenated with the string "2" to yield “NaN2”.
+
+6.The answer is NaN."A" - "B" yields NaN. But any operator applied to NaN with any other numeric operand will still yield NaN.

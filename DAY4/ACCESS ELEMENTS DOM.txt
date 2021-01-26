@@ -1,0 +1,95 @@
+We can access elements by
+1.ID
+2.Class
+3.Tag
+4.QuerySelector
+5.QuerySelectorAll
+
+1.ID
+
+The easiest way to access a single element in the DOM is by its unique ID. We can grab an element by ID with the getElementById() method of the document object.
+
+document.getElementById();
+ 
+In order to be accessed by ID, the HTML element must have an id attribute. We have a div element with an ID of demo.
+
+<div id="demo">Access me by ID</div>
+In the Console, let’s get the element and assign it to the demoId variable.
+
+const demoId = document.getElementById('demo');
+ 
+Logging demoId to the console will return our entire HTML element.
+
+console.log(demoId);
+
+Output
+<div id="demo">Access me by ID</div>
+
+
+2.Class
+
+The class attribute is used to access one or more specific elements in the DOM. We can get all the elements with a given class name with the getElementsByClassName() method.
+
+document.getElementsByClassName();
+ 
+Now we want to access more than one element, and in our example we have two elements with a demo class.
+
+<div class="demo">Access me by class (1)</div>
+<div class="demo">Access me by class (2)</div>
+ 
+Let’s access our elements in the Console and put them in a variable called demoClass.
+Generally when accessing elements by class, we want to apply a change to all the elements in the document with that particular class, not just one. We can do this by creating a for loop, and looping through every item in the array.
+console.log(demoClass);
+ 
+Output
+(2) [div.demo, div.demo]
+
+
+
+3.Tag
+A less specific way to access multiple elements on the page would be by its HTML tag name. We access an element by tag with the getElementsByTagName() method.
+
+document.getElementsByTagName();
+ 
+For our tag example, we’re using article elements.
+
+<article>Access me by tag (1)</article>
+<article>Access me by tag (2)</article>
+Just like accessing an element by its class, getElementsByTagName() will return an array-like object of elements, and we can modify every tag in the document with a for loop.
+
+const demoTag = document.getElementsByTagName('article');
+
+
+
+4.QuerySelector
+
+If you have any experience with the jQuery API, you may be familiar with jQuery’s method of accessing the DOM with CSS selectors.
+
+$('#demo'); // returns the demo ID element in jQuery
+ 
+We can do the same in plain JavaScript with the querySelector() and querySelectorAll() methods.
+
+document.querySelector();
+document.querySelectorAll();
+To access a single element, we will use the querySelector() method. In our HTML file, we have a demo-query element
+
+<div id="demo-query">Access me by query</div>
+ 
+The selector for an id attribute is the hash symbol (#). We can assign the element with the demo-query id to the demoQuery variable.
+
+const demoQuery = document.querySelector('#demo-query');
+
+
+
+5.QuerySelectorAll
+
+We can use the querySelectorAll() method to collect all the elements that match a specific query.
+
+In our example file, we have two elements with the demo-query-all class applied to them.
+
+<div class="demo-query-all">Access me by query all (1)</div>
+<div class="demo-query-all">Access me by query all (2)</div>
+ 
+The selector for a class attribute is a period or full stop (.), so we can access the class with .demo-query-all.
+With querySelector(), comma-separated values function as an OR operator. 
+For example, querySelector('div, article') will match div or article, whichever appears first in the document. With querySelectorAll(), comma-separated values function as an AND operator, and querySelectorAll('div, article') will match all div and article values in the document.
